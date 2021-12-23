@@ -1,0 +1,30 @@
+<div class="container">
+    <mat-card>
+        <mat-card-title>గ్రహ మైత్రి</mat-card-title>
+        <hr><br>
+        <mat-card-content>
+            <form (ngSubmit)="onSubmit()">
+                <mat-form-field floatLabel="always" appearance="outline" style="margin-right: 20px;">
+                    <mat-label>Choose Planet One</mat-label>
+                    <mat-select [(ngModel)]="optionOne" name="optionOne">
+                        <mat-option *ngFor="let planet of planets" [value]="planet">{{planet}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field floatLabel="always" appearance="outline" style="margin-left: 20px;">
+                    <mat-label>Choose Planet Two</mat-label>
+                    <mat-select [(ngModel)]="optionTwo" name="optionTwo">
+                        <mat-option *ngFor="let planet of planets" [value]="planet">{{planet}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <br>
+                <div class="action-btns">
+                    <button type="submit" mat-flat-button color="primary">Check Compatibilty</button>
+                    <button type="reset" mat-button color="warn" (click)="relation = undefined;">Clear Fields</button>
+                </div>
+            </form>
+            <div class="result-block" *ngIf="relation">
+                "{{relation}}"
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
